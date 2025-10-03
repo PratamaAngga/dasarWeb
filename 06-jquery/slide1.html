@@ -1,0 +1,25 @@
+<!DOCTYPE DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styleSlide.css"/>
+    <script src="jquery-3.7.1.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+        
+        // Aksi saat div dengan ID 'flip' diklik
+        $("#flip").click(function() {
+            // Kotak dengan ID 'kotak2' akan naik pelan-pelan (slideUp)
+            $("#kotak2").slideUp("slow");
+        });
+        
+    });
+    </script>
+</head>
+
+<body>
+    <div id="flip">Klik untuk Efek Slide</div>
+    
+    <div id="kotak2">Selamat Pagi</div>
+</body>
+</html>

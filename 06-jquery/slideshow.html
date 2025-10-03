@@ -1,0 +1,47 @@
+<!DOCTYPE DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styleSlideShow.css"/>
+    <script src="jquery-3.7.1.js"></script>
+    
+    <script>
+    var i = 0; // Variabel untuk menghitung slide ke berapa
+
+    $(document).ready(function() {
+        // Sembunyikan semua elemen (judul dan gambar) di awal
+        $('.slidertitle, #slider img').hide();
+        
+        showNextImage(); // Tampilkan gambar pertama
+        
+        // Atur interval: ulangi fungsi showNextImage setiap 3000ms (3 detik)
+        setInterval('showNextImage()', 3000); 
+    });
+
+    function showNextImage() {
+        i++; // Tambah hitungan slide (misal: dari 0 ke 1)
+        
+        // Tampilkan gambar dan judul dengan efek fade in, delay, lalu fade out
+        $('#sliderImage' + i).appendTo('#slider').fadeIn(1100).delay(1100).fadeOut(1100);
+        $('#title' + i).appendTo('#slider').fadeIn(1100).delay(1100).fadeOut(1100);
+        
+        // Cek jika sudah mencapai slide terakhir (slide ke-3)
+        if (i == 3) {
+            i = 0; // Reset hitungan ke 0 agar slide mulai dari awal lagi
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="slider">
+        <img id="sliderImage1" src="img/bunga1.jpg">
+        <div class="slidertitle" id="title1">Gambar 1</div>
+
+        <img id="sliderImage2" src="img/bunga2.jpg">
+        <div class="slidertitle" id="title2">Gambar 2</div>
+
+        <img id="sliderImage3" src="img/bunga3.jpg">
+        <div class="slidertitle" id="title3">Gambar 3</div>
+    </div>
+</body>
+</html>

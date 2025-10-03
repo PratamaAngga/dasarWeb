@@ -1,0 +1,30 @@
+<!DOCTYPE DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styleAnimate.css"/>
+    <script src="jquery-3.7.1.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+        
+        // Aksi saat elemen <button> diklik
+        $("button").click(function() {
+            // Semua animasi akan dijalankan BERURUTAN pada div class="box"
+            $(".box")
+                .animate({width: "300px"})      // 1. Lebar jadi 300px
+                .animate({height: "300px"})     // 2. Tinggi jadi 300px
+                .animate({marginLeft: "150px"}) // 3. Pindah margin kiri 150px
+                .animate({borderWidth: "10px"}) // 4. Tebal border jadi 10px
+                .animate({opacity: 0.5});       // 5. Transparansi jadi 50%
+        });
+        
+    });
+    </script>
+</head>
+
+<body>
+    <button type="button">Start Animation</button>
+    
+    <div class="box"></div>
+</body>
+</html>

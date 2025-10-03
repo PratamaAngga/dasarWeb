@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styleTable.css" />
+    <script src="jquery-3.7.1.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // Menambah baris
+        $(".add-row").click(function () {
+          var name = $("#name").val(); // Ambil value dari input Name
+          var email = $("#email").val(); // Ambil value dari input Email
+
+          // Markup baris baru yang akan ditambahkan
+          var markup =
+            "<tr><td><input type='checkbox' name='record'></td><td>" +
+            name +
+            "</td><td>" +
+            email +
+            "</td></tr>";
+
+          // Tambahkan markup ke dalam <tbody> tabel
+          $("table tbody").append(markup);
+        });
+
+        // Menghapus baris yang di centang
+        $(".delete-row").click(function () {
+          // Cari semua input checkbox yang punya name='record'
+          $("table tbody")
+            .find('input[name="record"]')
+            .each(function () {
+              // Cek apakah checkbox itu sedang di centang
+              if ($(this).is(":checked")) {
+                // Kalau iya, hapus elemen <tr> (baris) induk dari checkbox tersebut
+                $(this).parents("tr").remove();
+              }
+            });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="name" placeholder="Name" />
+      <input type="text" id="email" placeholder="Email Address" />
+      <input type="button" class="add-row" value="Add Row" />
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" name="record" /></td>
+          <td>Tony Stark</td>
+          <td>tonystark@mail.com</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="button" class="delete-row">Delete Row</button>
+  </body>
+</html>
